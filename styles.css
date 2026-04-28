@@ -1,0 +1,233 @@
+:root {
+  --bg-top: #f7f3e6;
+  --bg-bottom: #dfece7;
+  --panel: rgba(255, 252, 246, 0.92);
+  --panel-strong: rgba(255, 255, 255, 0.97);
+  --border: rgba(71, 92, 86, 0.14);
+  --text: #24343c;
+  --muted: #5f7174;
+  --accent: #42786e;
+  --accent-soft: #eef7f3;
+  --shadow: 0 24px 60px rgba(48, 64, 62, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.82), transparent 28%),
+    linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+body::before {
+  width: 22rem;
+  height: 22rem;
+  top: 4rem;
+  right: -5rem;
+  background: rgba(187, 220, 205, 0.72);
+}
+
+body::after {
+  width: 18rem;
+  height: 18rem;
+  bottom: 2rem;
+  left: -4rem;
+  background: rgba(245, 220, 176, 0.55);
+}
+
+.app-shell {
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.hero {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  max-width: 12ch;
+}
+
+.hero-copy {
+  margin: 1rem 0 0;
+  max-width: 60ch;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.calculator-card {
+  padding: 1.7rem;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.card-header p,
+.result-note,
+.formula-panel p {
+  color: var(--muted);
+}
+
+.card-header p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+.input-group {
+  display: block;
+  margin-top: 1.6rem;
+}
+
+.input-group span {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.currency-input {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(36, 52, 60, 0.12);
+  border-radius: 18px;
+  background: var(--panel-strong);
+}
+
+.currency-symbol {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+input {
+  width: 100%;
+  padding: 1rem 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: #8e9898;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.result-card {
+  padding: 1.3rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(36, 52, 60, 0.08);
+}
+
+.result-card.accent {
+  background: linear-gradient(160deg, rgba(66, 120, 110, 0.14), rgba(255, 255, 255, 0.95));
+  border-color: rgba(66, 120, 110, 0.22);
+}
+
+.result-label {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.result-value {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.result-note {
+  margin: 0.8rem 0 0;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.formula-panel {
+  margin-top: 1.6rem;
+  padding: 1.3rem;
+  border-radius: 22px;
+  background: rgba(40, 67, 72, 0.96);
+}
+
+.formula-panel h3 {
+  color: #fffaf1;
+}
+
+.formula-panel p {
+  margin: 0.7rem 0 0;
+  color: rgba(244, 248, 244, 0.86);
+  line-height: 1.68;
+  font-size: 1rem;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 1rem, 980px);
+    padding: 1.4rem 0 2rem;
+  }
+
+  .calculator-card {
+    padding: 1.15rem;
+    border-radius: 24px;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+}

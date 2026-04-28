@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plus 60s Event Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Plus 60s Event Pricing</p>
+      <h1>Set the right member price with confidence.</h1>
+      <p class="hero-copy">
+        Enter the event cost and the calculator works backward from the processing fee of
+        <strong>2.99% + $0.30</strong> to show the final member price, the fee amount, and the amount the club receives.
+      </p>
+    </section>
+
+    <section class="calculator-card" aria-labelledby="calculator-title">
+      <div class="card-header">
+        <h2 id="calculator-title">Event Calculator</h2>
+        <p>The charge amount is always rounded up to the next $0.10.</p>
+      </div>
+
+      <label class="input-group" for="event-cost">
+        <span>Event cost</span>
+        <div class="currency-input">
+          <span class="currency-symbol">$</span>
+          <input
+            id="event-cost"
+            name="event-cost"
+            type="number"
+            min="0"
+            step="0.01"
+            inputmode="decimal"
+            placeholder="125.00"
+            value="125.00"
+          >
+        </div>
+      </label>
+
+      <div class="results-grid" aria-live="polite">
+        <article class="result-card accent">
+          <span class="result-label">Amount to charge</span>
+          <strong class="result-value" id="charge-amount">$0.00</strong>
+          <p class="result-note">This is the member-facing price.</p>
+        </article>
+
+        <article class="result-card">
+          <span class="result-label">Processing fees</span>
+          <strong class="result-value" id="fee-amount">$0.00</strong>
+          <p class="result-note">Calculated as 2.99% of the charge plus $0.30.</p>
+        </article>
+
+        <article class="result-card">
+          <span class="result-label">Amount club receives</span>
+          <strong class="result-value" id="keep-amount">$0.00</strong>
+          <p class="result-note">This will always be at least the original event cost.</p>
+        </article>
+      </div>
+
+      <div class="formula-panel">
+        <h3>How it works</h3>
+        <p id="formula-breakdown">
+          For an event cost of $0.00, the calculator solves the formula, rounds the charge up to the next $0.10, and subtracts the fees from the final charge.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
